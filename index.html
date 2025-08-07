@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft сборка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .download-section {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .download-btn:hover {
+            background-color: #1b5e20;
+        }
+        
+        .mod-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .mod-item {
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .mod-name {
+            color: #2e7d32;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .mod-name:hover {
+            text-decoration: underline;
+        }
+        
+        .mod-desc {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #666;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minecraft сборка</h1>
+    <div class="download-section">
+        <h2>Скачать полную сборку</h2>
+        <p>Выберите удобный способ скачивания:</p>
+        <a href="https://drive.google.com/file/d/18PwacRp8YeiLq7u1TccJombJYbVaHg1o/view?usp=sharing" class="download-btn">Скачать с Google Диска</a>
+        <a href="https://www.mediafire.com/file/gkrx82mvrz2ewa7/mods.zip/file" class="download-btn">Скачать с Mediafire</a>
+    </div>
+    <h2>Полный список модов</h2>
+    <p>Я использую <a href="https://polymc.org/">PolyMC</a> который позволяет скачивать прямо в лаунчере моды с Modrinth и Curseforge, а также обновлять их. Можно отключать некоторые моды в самом лаунчере для игровой сессии.</p>
+    <p>Все ссылки на моды ведут на прямое скачивание с Modrinth/Curseforge, версия 1.21.7</p>
+    <ul class="mod-list">
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/imycYGcs/versions/OtdYLPBo/1.21.7-better-boat-controls-1.0.0.jar" class="mod-name">1. Better Boat Controls</a>
+            <div class="mod-desc">Улучшает управление лодками, можно управлять мышкой</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/kzwxhsjp/versions/2NnVKitl/accurate-block-placement-1.3.9-mc1.21.2-1.21.7.jar" class="mod-name">2. Accurate Block Placement</a>
+            <div class="mod-desc">Для удобного размещения блоков</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/lg17V3i3/versions/NwgIqIn9/autodrop-2.5.1-1.21.6%2Bfabric.jar" class="mod-name">3. AutoDrop</a>
+            <div class="mod-desc">Автоматически выбрасывает ненужные предметы по нажатию клавиши</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/uSdcnlts/versions/gx0zcnjO/autoswitch-fabric-12.0.1.jar" class="mod-name">4. AutoSwitch</a>
+            <div class="mod-desc">Меняет инструмент в зависимости от добываемого блока</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/kqJFAPU9/versions/rXZxHSEZ/bettermounthud-1.2.6.jar" class="mod-name">5. BetterMountHUD</a>
+            <div class="mod-desc">Улучшает интерфейс при езде на существах</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/Y5DGNK4o/versions/WkS2Aqqa/BetterSavedHotbars-1.3.8.jar" class="mod-name">6. BetterSavedHotbars</a>
+            <div class="mod-desc">Удобное сохранение креатив-слотов между сессий</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/DMu0oBKf/versions/CtomlUoN/craftingtweaks-fabric-1.21.7-21.7.1.jar" class="mod-name">7. CraftingTweaks</a>
+            <div class="mod-desc">Добавляет удобные кнопки в верстак (например, "разложить по сетке")</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/RPOSBQgq/versions/UhsO4Lxe/itemswapper-fabric-0.8.0-mc1.21.6.jar" class="mod-name">8. ItemSwapper</a>
+            <div class="mod-desc">выбор альтернативов блока</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/aC3cM3Vq/versions/K0YD3bG1/MouseTweaks-fabric-mc1.21.6-2.28.jar" class="mod-name">9. MouseTweaks</a>
+            <div class="mod-desc">Улучшает управление мышью в инвентарях</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/4QufRNTv/versions/VPkPDzvX/NoFortuneChest-1.1%2B1.21.7.jar" class="mod-name">10. NoFortuneChest</a>
+            <div class="mod-desc">Предупреждении о удачи при ломании эндерсундука</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/ODkrKaq7/versions/mauzCH11/StonecutterRemastered-1.3.2-1.21.6.jar" class="mod-name">11. StonecutterRemastered</a>
+            <div class="mod-desc">Улучшает визуал камнереза</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/Olv0fO13/versions/Q6osAHFX/animated-inventory-1.2.0.jar" class="mod-name">12. Animated Inventory</a>
+            <div class="mod-desc">Просто красиви инвентарь, есть некоторые типы: лягушка и остальные</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/n6PXGAoM/versions/tWxry96X/betterstats-3.13.9-beta.2%2Bfabric-1.21.7.jar" class="mod-name">13. BetterStats</a>
+            <div class="mod-desc">Улучшает визуал статистики</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/o1tyE5vJ/versions/ifveogBw/custom-crosshair-mod-v1.6.2-fabric-mc1.21.7.jar" class="mod-name">14. Custom Crosshair</a>
+            <div class="mod-desc">Настраиваемый прицел</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/OpX7IHIc/versions/gGe7pqWo/double_hotbar-1.3.4-mc1.21.6-7-fabric.jar" class="mod-name">15. Double Hotbar</a>
+            <div class="mod-desc">Показывает вторую панель предметов</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/smUP7V3r/versions/osDKNZVj/durabilitytooltip-1.1.6-fabric-mc1.21.jar" class="mod-name">16. DurabilityTooltip</a>
+            <div class="mod-desc">Отображает прочность предметов в подсказках</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/tEcWzCZz/versions/p8W6NrDe/held-item-info-1.8.0.jar" class="mod-name">17. Held Item Info</a>
+            <div class="mod-desc">Показывает информацию о предмете в руке</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://www.curseforge.com/api/v1/mods/357540/files/6717484/download" class="mod-name">18. InventoryHUD</a>
+            <div class="mod-desc">Удобный HUD</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/GEuPeVxN/versions/nMZr8xR1/light-level-2025-1.21.7-1.jar" class="mod-name">19. Light Level</a>
+            <div class="mod-desc">Показывает уровень освещённости</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/UMxybHE8/versions/ODVIQVIp/minihud-fabric-1.21.8-0.36.3.jar" class="mod-name">20. Minihud</a>
+            <div class="mod-desc">Минималистичный HUD с FPS, координатами и др.</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/ZX66K16c/versions/ddBB70nM/PickUpNotifier-v21.7.0-1.21.7-Fabric.jar" class="mod-name">21. PickUpNotifier</a>
+            <div class="mod-desc">Уведомления о подобранных предметах</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/40SFPJ0u/versions/lSfAP1uD/starhud-1.21.6-2.1.0.jar" class="mod-name">22. StarHUD</a>
+            <div class="mod-desc">Кастомизируемый интерфейс</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/x02cBj9Y/versions/sxd3IyH5/status-effect-bars-1.0.9.jar" class="mod-name">23. Status Effect Bars</a>
+            <div class="mod-desc">Отображает эффекты в виде полосок</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/1IjD5062/versions/m0cvWhzT/continuity-3.0.1-beta.1%2B1.21.6.jar" class="mod-name">24. Continuity</a>
+            <div class="mod-desc">Улучшает связанные текстуры блоков</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/uCdwusMi/versions/2mY04ehi/DistantHorizons-2.3.3-b-1.21.7-fabric-neoforge.jar" class="mod-name">25. Distant Horizons</a>
+            <div class="mod-desc">Увеличивает дистанцию прорисовки(много кушает)</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/BVzZfTc1/versions/aEVKKdXX/entity_texture_features_fabric_1.21.6-6.2.14.jar" class="mod-name">26. Entity Texture Features</a>
+            <div class="mod-desc">Добавляет детализацию текстур существ</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/WhbRG4iK/versions/Fee5709g/fallingleaves-2.0.1%2B1.21.5.jar" class="mod-name">27. Falling Leaves</a>
+            <div class="mod-desc">Анимированные падающие листья</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/xZQOoOaY/versions/3f3eEfAp/footprintparticle-0.5.3-mc1.21.6.jar" class="mod-name">28. Footprint Particle</a>
+            <div class="mod-desc">Следы от ног на песке/снегу</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/YL57xq9U/versions/l77DAK6U/iris-fabric-1.9.1%2Bmc1.21.7.jar" class="mod-name">29. Iris</a>
+            <div class="mod-desc">Шейдеры для Fabric</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/yBW8D80W/versions/mOsadEfH/lambdynamiclights-4.3.2%2B1.21.8.jar" class="mod-name">30. LambDynamicLights</a>
+            <div class="mod-desc">Динамическое освещение от предметов</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/gPCdW0Wr/versions/26unk04q/make_bubbles_pop-0.3.1-fabric-mc1.21.2-1.21.4.jar" class="mod-name">31. Make Bubbles Pop</a>
+            <div class="mod-desc">Пузыри в воде лопаются при всплытии</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/PLAGcSFJ/versions/eYfDnPaX/ParticleEffects-1.0.5%2B1.21.7.jar" class="mod-name">32. ParticleEffects</a>
+            <div class="mod-desc">Добавляет новые частицы</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/nrikgvxm/versions/xvreDfAp/particle-rain-3.3.6.jar" class="mod-name">33. ParticleRain</a>
+            <div class="mod-desc">Дождь с эффектами</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/rcTfTZr3/versions/8pjCeA4P/PresenceFootsteps-1.11.1%2B1.21.7.jar" class="mod-name">34. Presence Footsteps</a>
+            <div class="mod-desc">Реалистичные звуки шагов</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/rI0hvYcd/versions/W7vlELm0/visuality-0.7.10%2B1.21.5.jar" class="mod-name">35. Visuality</a>
+            <div class="mod-desc">Визуальные улучшения при ударе сущностей</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/g96Z4WVZ/versions/Zkvk6pH6/BadOptimizations-2.3.0-1.21.6-21.7.jar" class="mod-name">36. BadOptimizations</a>
+            <div class="mod-desc">Улучшает производительность</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/NNAgCjsB/versions/5wVZFo2d/entityculling-fabric-1.8.2-mc1.21.6.jar" class="mod-name">37. EntityCulling</a>
+            <div class="mod-desc"><abbr title="10 первей кубоида">Оптимизирует рендеринг существ</abbr></div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/5ZwdcRci/versions/WbU84LUp/ImmediatelyFast-Fabric-1.11.2%2B1.21.7.jar" class="mod-name">38. ImmediatelyFast</a>
+            <div class="mod-desc">Ускоряет загрузку текстур</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/gvQqBUqZ/versions/77EtzYFA/lithium-fabric-0.18.0%2Bmc1.21.7.jar" class="mod-name">39. Lithium</a>
+            <div class="mod-desc">Оптимизация</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/AANobbMI/versions/ND4ROcMQ/sodium-fabric-0.6.13%2Bmc1.21.6.jar" class="mod-name">40. Sodium</a>
+            <div class="mod-desc">Улучшает FPS (альтернатива OptiFine)</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/PtjYWJkn/versions/v7JHUEiF/sodium-extra-fabric-0.6.6%2Bmc1.21.6.jar" class="mod-name">41. Sodium Extra</a>
+            <div class="mod-desc">Дополнительные настройки для Sodium</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar" class="mod-name">42. FerriteCore</a>
+            <div class="mod-desc">Снижает потребление RAM</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/ENWn9izD/versions/DgUrdBC2/alternativeworldsavelocation-1.21.7-3.6.jar" class="mod-name">43. AlternativeWorldSaveLocation</a>
+            <div class="mod-desc">Изменяет путь сохранения миров</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/9uikk2Ea/versions/kAzan8n3/BundleInventory-Fabric-1.7.2.jar" class="mod-name">44. BundleInventory</a>
+            <div class="mod-desc">Улучшает интерфейс мешочков</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/fJi8nm80/versions/HK0GRjry/clickthrough-plus-fabric-3.5.1%2B1.21.4.jar" class="mod-name">45. ClickThrough+</a>
+            <div class="mod-desc">Позволяет кликать сквозь некоторые интерфейсы</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/h3XWIuzM/versions/UKZaPb5K/dark-loading-screen-1.6.17.jar" class="mod-name">46. Dark Loading Screen</a>
+            <div class="mod-desc">Тёмный экран загрузки</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/x1hIzbuY/versions/ah71vPRw/fastquit-3.1.1%2Bmc1.21.6.jar" class="mod-name">47. FastQuit</a>
+            <div class="mod-desc">Ускоряет выход из игры</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/qQyHxfxd/versions/LhwpK0O6/NoChatReports-FABRIC-1.21.7-v2.14.0.jar" class="mod-name">48. NoChatReports</a>
+            <div class="mod-desc">Отключает отчеты в чате</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/CcL3MXyI/versions/U6SVb2YE/recursive-resources-2.7.2%2B1.21.7.jar" class="mod-name">49. Recursive Resources</a>
+            <div class="mod-desc">Упрощает управление ресурспаками, создает папки</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/RLzHAoZe/versions/zdyGPkVi/Resourcify%20%281.21.8-fabric%29-1.7.4.jar" class="mod-name">50. Resourcify</a>
+            <div class="mod-desc">Можно скачать ресурспак прямо в игре</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/aru7gAyl/versions/FsHqV9mi/screenshotcopy-fabric-1.2.6.jar" class="mod-name">51. ScreenshotCopy</a>
+            <div class="mod-desc">Копирует скриншоты в буфер обмена</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/2M01OLQq/versions/os3K6gc6/shulkerboxtooltip-fabric-5.2.8%2B1.21.7.jar" class="mod-name">52. ShulkerBoxTooltip</a>
+            <div class="mod-desc">Показывает содержимое шалкер-боксов</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/1u6JkXh5/versions/R846T4GX/worldedit-mod-7.3.16.jar" class="mod-name">53. WorldEdit</a>
+            <div class="mod-desc">Мощные инструменты для строительства</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/NSLJJooQ/versions/nWaUUJzW/WorldEditCUI-1.21.7%2B01.jar" class="mod-name">54. WorldEditCUI</a>
+            <div class="mod-desc">Визуализация для WorldEdit</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/pZ2wrerK/versions/GlXCtZrV/emotecraft-fabric-for-MC1.21.7-3.0.0-a.build.108.jar" class="mod-name">55. Emotecraft</a>
+            <div class="mod-desc">Добавляет эмоции и анимации игрока</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/MPCX6s5C/versions/JTLkasT1/notenoughanimations-fabric-1.10.1-mc1.21.6.jar" class="mod-name">56. NotEnoughAnimations</a>
+            <div class="mod-desc">Улучшает анимации персонажа</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/kepjj2sy/versions/6DcwFcsS/ShoulderSurfing-Fabric-1.21.8-4.14.1.jar" class="mod-name">57. ShoulderSurfing</a>
+            <div class="mod-desc">Вид от третьего лица с настройками</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/H5XMjpHi/versions/yKQW4tTp/firstperson-fabric-2.5.0-mc1.21.6.jar" class="mod-name">58. FirstPerson</a>
+            <div class="mod-desc">Реалистичный вид от первого лица</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/ZORMkttv/versions/RWOrbRwt/guicompass-1.21.7-4.9.jar" class="mod-name">59. GuiCompass</a>
+            <div class="mod-desc">Компас в интерфейсе</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/KHwGUCPn/versions/9frXMKpt/NetherCoords%202.0.2%20for%201.21.6-1.21.7.jar" class="mod-name">60. NetherCoords</a>
+            <div class="mod-desc">Вычисляет координаты при вводе /portal или нажатии F8</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/NcUtCpym/versions/3Lv1hpHj/XaerosWorldMap_1.39.12_Fabric_1.21.7.jar" class="mod-name">61. Xaero's World Map</a>
+            <div class="mod-desc">Удобная карта мира</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/P7dR8mSH/versions/JntuF9Ul/fabric-api-0.129.0%2B1.21.7.jar" class="mod-name">62. Fabric API</a>
+            <div class="mod-desc">Обязательная основа для модов</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/9s6osm5g/versions/cz0b1j8R/cloth-config-19.0.147-fabric.jar" class="mod-name">63. Cloth Config</a>
+            <div class="mod-desc">Библиотека для настроек модов</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/lhGA9TYQ/versions/XcJm5LH4/architectury-17.0.8-fabric.jar" class="mod-name">64. Architectury</a>
+            <div class="mod-desc">Совместимость между Fabric и Forge</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/GcWjdA9I/versions/USRMpjDG/malilib-fabric-1.21.8-0.25.4.jar" class="mod-name">65. Malilib</a>
+            <div class="mod-desc">Для модов типа Litematica</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/codAaoxh/versions/2syNs7py/midnightlib-1.7.5-fabric%2B1.21.6.jar" class="mod-name">66. Midnight</a>
+            <div class="mod-desc"><del>Чит для кс</del> Универсальная библиотека настроек</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/uY9zbflw/versions/OhmMfRNt/soundcontroller-1.2.3-mc1.21.6.jar" class="mod-name">67. SoundController</a>
+            <div class="mod-desc">Гибкие настройки звуков</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/1bZhdhsH/versions/7sVwhlGV/plasmovoice-fabric-1.21.6-2.1.5.jar" class="mod-name">68. PlasmoVoice</a>
+            <div class="mod-desc">Голосовой чат</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/N6n5dqoA/versions/CRjwbqnJ/Axiom-4.9.1-for-MC1.21.6.jar" class="mod-name">69. Axiom</a>
+            <div class="mod-desc">Современный аналог WorldEdit</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/NkmfPodh/versions/DDxo3sR8/Death-Effects-fabric-1.21.6-0.1.jar" class="mod-name">70. Death Effects</a>
+            <div class="mod-desc">Эффекты при смерти</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/tWqI1yhH/versions/vShgyXYB/legacy-freecam-fabric-1.0.2.jar" class="mod-name">71. Legacy Freecam</a>
+            <div class="mod-desc">Режим "свободной камеры" от orl</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/EdBSdqge/versions/vFrTfXIP/spyglass_astronomy-1.0.16-mc1.21.6.jar" class="mod-name">72. Spyglass Astronomy</a>
+            <div class="mod-desc">Астрономия через подзорную трубу</div>
+        </li>
+        <li class="mod-item">
+            <a href="https://cdn.modrinth.com/data/HEds12HI/versions/CO9OfShw/VisualKeys-0.0.9-1.21.6.jar" class="mod-name">73. VisualKeys</a>
+            <div class="mod-desc">Показывает все назначенные горячие клавиши в управлении</div>
+        </li>
+    </ul>
+    <footer>
+        <p>Сборка для версии 1.21.7</p>
+    </footer>
+</body>
+</html>
