@@ -141,6 +141,13 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
         }
+
+        .tutorial{
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
         
         footer {
             margin-top: 40px;
@@ -170,21 +177,11 @@
     <header>
         <h1>Minecraft сборка</h1>
     </header>
-    <div class="discord-widget">
-        <iframe src="https://discord.com/widget?id=1200279131187843174&theme=dark" width="550" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    </div>
     <p>Я использую <a href="https://polymc.org/">PolyMC</a> который позволяет скачивать прямо в лаунчере моды с Modrinth и Curseforge, а также обновлять их.</p>
     <div class="version-selector">
         <button class="version-btn active" data-version="1.21.8">1.21.8</button>
-        <button class="version-btn" data-version="1.21.7"><abbr title="Сборка пульс">1.21.7</abbr></button>
-        <button class="version-btn" data-version="1.21.4">1.21.4</abbr></button>
-    </div>
-    <div class="content-section active" id="content-1.21.4">
-        <div class="download-section">
-            <h2>Скачать полную сборку для 1.21.4</h2>
-            <p>Выберите удобный способ скачивания:</p>
-            <a href="https://drive.google.com/file/d/1T-Hv39N_vsRGACFdKAa0nOGlm1T8hx23/view?usp=sharing" class="download-btn">Скачать с Google Диска</a>
-        </div>
+        <button class="version-btn " data-version="resourses">Ресурспаки</button>
+        <button class="version-btn " data-version="PVP">PVP Practice by TheobaldTheBird</button>
     </div>
     <div class="content-section active" id="content-1.21.8">
         <div class="download-section">
@@ -193,410 +190,27 @@
             <a href="https://drive.google.com/file/d/13rA-EJWSg7nHlodZeDhBd1uXb013CC-J/view?usp=sharing" class="download-btn">Скачать с Google Диска</a>
             <a href="https://www.mediafire.com/file/1ko1c4s8aey8mfm/1_21_8_mods.zip/file" class="download-btn">Скачать с Mediafire</a>
         </div>
-        <h2>Список модов для 1.21.8</h2>
-        <ul class="mod-list">
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/accurate-block-placement-reborn">1. Accurate block placement</a>
-                <div class="mod-desc">Изменяет размещение блоков</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/adv-crosshair">2. Advanced crosshair</a>
-                <div class="mod-desc">Центрирует прицел и видоизменяет</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/allow-portal-guis">3. Allow portal guis </a>
-                <div class="mod-desc">Возможность пользоваться инвентарем находясь в портале</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/animated-inventory">4. Animated inventory</a>
-                <div class="mod-desc">Новый вид инвентаря</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/appleskin">5. Appleskin</a>
-                <div class="mod-desc">Улучшенные HUD еды</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/architectury-api">6. Architectury</a>
-                <div class="mod-desc">Библиотека для различных модов</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/armor-poser">7. ArmorPoser</a>
-                <div class="mod-desc">Позволяет настраивать стойки для брони</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/autoswitch">8. Autoswitch</a>
-                <div class="mod-desc">Автоматические меняет инструменты</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/axiom">9. Axiom</a>
-                <div class="mod-desc">Замена Worldedit с графическим интерфейсом</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/badoptimizations">10. BadOptimizations</a>
-                <div class="mod-desc">Оптимизация</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/balm">11. Balm</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/bettergrassify">12. BetterGrassify</a>
-                <div class="mod-desc">Улучшенная текстура блоков земли</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/better-saved-hotbars">13. BetterSavedHotbars</a>
-                <div class="mod-desc">Удобное использование сохраненных хотбаров</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/better-stats">14. Betterstats</a>
-                <div class="mod-desc">Улучшенная статистика игрока</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/blockmeter">15. Blockmeter</a>
-                <div class="mod-desc">Линейка/Рулетка</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/boat-item-view">16. Boatiview</a>
-                <div class="mod-desc">Отображение предметов находясь в лодке </div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/bundle-inventory">17. BundleInventory</a>
-                <div class="mod-desc">Удобный инвентарь мешка</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/chat-heads">18. Chatheads</a>
-                <div class="mod-desc">Головы игроков в чате и табе</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/cicada">19. Cicada</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/clickthrough+">20. clickthrough</a>
-                <div class="mod-desc">Позволяет кликать игнорируя таблички и рамки</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/cloth-config">21. Cloth config</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/collective">22. Collective</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/crafting-tweaks">23. CraftingTweaks</a>
-                <div class="mod-desc">Добавляет функционал в верстак</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/creativecore">24. CreativeCore</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/cubes-without-borders">25. Cubes without borders</a>
-                <div class="mod-desc">Полезно для пользователей с 2 и больше мониторами</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/dnp">27. Damage Number Particles</a>
-                <div class="mod-desc">Показывает урон существам</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/durability-tooltip">28. Durabilitytooltip</a>
-                <div class="mod-desc">Показывает прочность предметов</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/entityculling">29. Entityculling</a>
-                <div class="mod-desc">Оптимизированный рендеринг сущностей</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/essentialgui">30. Essentialgui</a>
-                <div class="mod-desc">Добавляет видоизменение HUD</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/fabric-api">31. Fabric api</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/fabric-language-kotlin">32. Fabric language kotlin</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/fastquit">33. Fastquit</a>
-                <div class="mod-desc">Быстрый выход из одиночных миров</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/ferrite-core">34. Ferritecore</a>
-                <div class="mod-desc">Оптимизация использования памяти</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/flashback">35. Flashback</a>
-                <div class="mod-desc">Новый ReplayMod</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/flashbackoutlinefix">36. Flashbackblockoutlinefix</a>
-                <div class="mod-desc">Фикс для Flashback</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/forge-config-api-port">37. Forge Config API Port</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/freecam">38. Freecam</a>
-                <div class="mod-desc">Разделение души от тела</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/fzzy-config">39. Fzzy config</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/gui-compass">40. Guicompass</a>
-                <div class="mod-desc">Координаты с компасом в инвентаре...</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/health-indicators">41. Health indicator</a>
-                <div class="mod-desc">Показывает HP сущностей</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/health-indicator-txf">42. Health Indicator TXF</a>
-                <div class="mod-desc">Показывает HP сущностей</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/held-item-info">43. Held Item Info</a>
-                <div class="mod-desc">Показывает информацию о предмете в руке</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/immediatelyfast">44. ImmediatelyFast</a>
-                <div class="mod-desc">Оптимизирует рендеринг</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://www.curseforge.com/minecraft/mc-mods/inventory-hud-forge">45. Inventoryhud</a>
-                <div class="mod-desc">Добавляет возможность вывести информацию о вашем инвентаре</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/invmove">46. InvMove</a>
-                <div class="mod-desc">Движение находясь в инвентарях</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/iris">47. Iris fabric</a>
-                <div class="mod-desc">Поддержка шейдеров</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/item-scroller">48. Item Scroller</a>
-                <div class="mod-desc">Удобное перемещение предмето</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/jade">49. Jade</a>
-                <div class="mod-desc">Информация о блоке/сущности куда смотрите</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/journeymap">50. Journeymap</a>
-                <div class="mod-desc">Карта</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/lambdynamiclights">51. Lamb dynamic lights</a>
-                <div class="mod-desc">Динамическое освещение</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/light-level-2025">52. Light level</a>
-                <div class="mod-desc">Показывает уровень освещения</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/litematica">53. Litematica</a>
-                <div class="mod-desc">Литематика</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/litematica-printer">54. Litematica printer</a>
-                <div class="mod-desc">Ходишь, он ставит блоки сам</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/lithium">55. Lithium</a>
-                <div class="mod-desc">Оптимизация</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/malilib">56. Malilib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/minihud">57. Minihud</a>
-                <div class="mod-desc">Добавляет возможность вывести разную информацию на экран</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/modmenu">58. Mod Menu</a>
-                <div class="mod-desc">Утилита позволяющая настраивать и просматривать моды</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/morechathistory">59. MoreChatHistory</a>
-                <div class="mod-desc">Сохраняет чат и ваши сообщения</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/my_totem_doll">60. My Totem Doll</a>
-                <div class="mod-desc">Видоизменяет тотемы бессмертия</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/no-chat-reports">61. NoChatReports</a>
-                <div class="mod-desc">Убирает подписи ваших сообщений и ошибки сборки</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/nopeeking">62. No Peeking</a>
-                <div class="mod-desc">Прячет ваш пароль от других глаз</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/ok-zoomer">63. Ok Zoomer</a>
-                <div class="mod-desc">Зум/приближение</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/optigui">64. OptiGUI</a>
-                <div class="mod-desc">Поддерживает ресурспаки</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/packet-fixer">65. Packetfixer</a>
-                <div class="mod-desc">Устраняет возможные проблемы с пакетами</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/plugin/patpat">66. PatPat</a>
-                <div class="mod-desc">Позваоляет тапать(гладить) сущностей</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/pick-up-notifier">67. PickUpNotifier</a>
-                <div class="mod-desc">Уведомляет о подобранном предмете</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/plugin/plasmo-voice">68. Plasmovoice</a>
-                <div class="mod-desc">Голосовой чат</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/possessive">69. Possessive</a>
-                <div class="mod-desc">Позволяет управлять стойками для брони</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/presence-footsteps">70. PresenceFootsteps</a>
-                <div class="mod-desc">Новые звуки шагов</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/provis-health-bars">71. Provi's Health Bars</a>
-                <div class="mod-desc">Показывает HP сущностей</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/puzzles-lib">72. PuzzlesLib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/reeses-sodium-options">73. Reese's Sodium Options</a>
-                <div class="mod-desc">Измененное меню настроек Sodium</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/rei">74. Roughly Enough Items</a>
-                <div class="mod-desc">В основном показывает крафты предметов</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/rrls">75. Remove Reloading Screen</a>
-                <div class="mod-desc">Убирает экран загрузки ресурспаков</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/smootheez-config-lib">76. Smootheez Config Lib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/screencopy">77. Screenshot copy</a>
-                <div class="mod-desc">Отправляет ваши скриншоты в буфер обмена</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/shoulder-surfing-reloaded/versions">78. ShoulderSurfing</a>
-                <div class="mod-desc">Улучшает F5</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/shulkerboxtooltip">79. Shulkerbox Tooltip</a>
-                <div class="mod-desc">Показывает что находится в шалкере</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/simple_autoclicker">80. Simple autoclicker</a>
-                <div class="mod-desc">Автокликер для афк</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/sodium-extra">81. Sodium Extra</a>
-                <div class="mod-desc">Оптимизация</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/sodium">82. Sodium</a>
-                <div class="mod-desc">Оптимизация</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/sound-controller">83. Sound Controller</a>
-                <div class="mod-desc">Можно настраивать каждый звук майнкрафта</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/starhud">84. Starhud</a>
-                <div class="mod-desc">Позволяет выводить информацию на экран</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/status-effect-bars">85. Status Effect Bars</a>
-                <div class="mod-desc">Добавляет информацию о эффектах на экран</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/stendhal">86. Stendhal</a>
-                <div class="mod-desc">Удобное редактирование табличек и книжек</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/supermartijn642s-config-lib">87. SuperMartijn642's Config Lib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/datapack/health_indicator">88. Tablist Health Indicator</a>
-                <div class="mod-desc">Показывает HP в табе</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/tcdcommons">89. TCDCommons API</a>
-                <div class="mod-desc">Объединяет Worldedit и Litematica</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/tweakeroo">90. Tweakeroo</a>
-                <div class="mod-desc">Утилита с множеством полезных твиков</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/ui-control">91. UI Control</a>
-                <div class="mod-desc">Позволяет настраивать кнопки в главном меню и меню паузы.</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/ukulib">92. Ukulib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/unilib">93. UniLib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/visualkeys">94. VisualKeys</a>
-                <div class="mod-desc">Позволяет посмотреть горячие клавиши и делает удобные настройки управления</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/transparent-nametags">95. WhiteNametags</a>
-                <div class="mod-desc">Убирает фон у имен сущностей</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/wynnlantern">96. WynnLantern</a>
-                <div class="mod-desc">Позволяет клиентски ходить с фонарем в левой руке</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/xaeros-minimap">97. Xaeros Minimap</a>
-                <div class="mod-desc">Миникарта</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/xaeros-world-map">98. XaerosWorldMap</a>
-                <div class="mod-desc">Глобальная карта</div>
-            </li>
-            <li class="mod-item">
-                <a class="mod-name" href="https://modrinth.com/mod/yacl">99. YetAnotherConfigLib</a>
-                <div class="mod-desc">Библиотека</div>
-            </li>
-        </ul>
     </div>
-    <div class="content-section" id="content-1.21.7">
-        <div class="empty-state">
-            <h2>Кажется сборки на версию 1.21.7 еще нету :/</h2>
-            <p>Попробуйте спросить у BADcrafter'a</p>
+        <div class="content-section" id="content-PVP">
+            <div class="download-section">
+                <h2>Карта была создана <a href="https://www.youtube.com/channel/UCzguD6UiqYaeMDQBbuEUyWw">TheobaldTheBird</a></h2>
+                <p>Для запуска карты нужно скачать файл по ссылке снизу</p>
+                <a href="https://drive.google.com/file/d/1kEo_lo1iD6oSBNiAEUN2Plk-_7S9KGMT/view?usp=sharing" class="download-btn">Скачать с Google Диска</a>
+                <p>Туториал есть в этом файле в виде txt документа, а так же <a href="https://www.youtube.com/watch?v=_tQBenQStd0">видео создателя карты</a></p>
+            </div>
+        </div>
+        <div class="content-section" id="content-resourses">
+            <div class="empty-state">
+                <h2>Кажется ресурспаков еще нету :/</h2>
+                <p>Попробуйте зайти позже</p>
+            </div>
         </div>
     </div>
     <footer>
         <p>by Punishers</p>
+        <div class="discord-widget">
+        <iframe src="https://discord.com/widget?id=1200279131187843174&theme=dark" width="550" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -617,5 +231,4 @@
         });
     </script>
 </body>
-
 </html>
