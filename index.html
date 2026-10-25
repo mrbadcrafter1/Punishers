@@ -183,7 +183,23 @@
     </div>
   </div>
 
-  <!-- СОХРАНЕНИЯ, GAME OVER, ФИНАЛ -->
+  <!-- КАРТА ЗОНЫ (ГЛОБАЛЬНАЯ) - ОТКЛЮЧЕНА -->
+  <!-- (Оставлена для совместимости, если понадобится) -->
+  <section id="world" class="screen" style="display:none;">
+    <header class="room__header">
+      <h1 class="room__title">карта Зоны</h1>
+      <p class="room__subtitle">путь к центру</p>
+    </header>
+    <div class="room__divider"></div>
+    <div id="world-map" class="world-map"></div>
+    <div class="room__divider"></div>
+    <p id="world-description" class="room__description">ты смотришь на карту. линия уходит вперёд.</p>
+    <div class="room__actions" id="world-actions"></div>
+    <div class="room__divider"></div>
+    <button id="btn-back-room-world" class="btn btn--nav" type="button"><span class="btn__key">[0]</span> ← вернуться к костру</button>
+  </section>
+
+  <!-- СОХРАНЕНИЯ -->
   <section id="saves" class="screen">
     <header class="room__header">
       <h1 class="room__title">сохранения</h1>
@@ -195,6 +211,7 @@
     <div class="room__actions">
       <button id="btn-export" class="btn" type="button"><span class="btn__key">[1]</span> экспортировать</button>
       <button id="btn-import" class="btn" type="button"><span class="btn__key">[2]</span> импортировать</button>
+      <button id="btn-hard-reset" class="btn btn--danger" type="button" style="margin-top: 1rem;"><span class="btn__key">[!]</span> сбросить всё (начать заново)</button>
       <button id="btn-back-room-saves" class="btn btn--nav" type="button"><span class="btn__key">[0]</span> ← вернуться к костру</button>
     </div>
   </section>
@@ -227,7 +244,7 @@
   <div id="notifications" class="notifications" aria-live="polite"></div>
 
   <div class="statusbar">
-    <span id="status-left">версия 5.1 · locations</span>
+    <span id="status-left">версия 5.2 · reset</span>
     <span id="status-right">зона молчит</span>
   </div>
 
@@ -239,7 +256,7 @@
   <script src="js/weather.js"></script>
   <script src="js/path.js"></script>
   <script src="js/craft.js"></script>
-<script src="js/world.js"></script>
+  <script src="js/world.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
