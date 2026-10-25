@@ -1,0 +1,201 @@
+/* ===== Базовые настройки ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0a; --bg-soft: #121210; --text: #b8b8a8; --text-dim: #6a6a5e;
+  --rust: #c47a3a; --rust-soft: #8a5a2a; --danger: #a83a2a; --ok: #6a8a4a;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--text); font-family: "Courier New", Consolas, monospace;
+  font-size: 16px; line-height: 1.6; display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; overflow: hidden; position: relative; letter-spacing: 0.5px;
+  filter: sepia(0.08) hue-rotate(20deg) saturate(1.1); animation: crt-flicker 4s infinite;
+}
+
+/* ===== CRT, шум ===== */
+.noise { position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04; background-image: repeating-linear-gradient(0deg, transparent 0 2px, #fff 2px 3px), repeating-linear-gradient(90deg, transparent 0 3px, #fff 3px 4px); mix-blend-mode: overlay; }
+.vignette { position: fixed; inset: 0; pointer-events: none; z-index: 2; background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.85) 100%); }
+.scanlines { position: fixed; inset: 0; pointer-events: none; z-index: 4; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0px, rgba(0, 0, 0, 0.25) 1px, transparent 1px, transparent 3px); box-shadow: inset 0 0 120px rgba(74, 122, 58, 0.15); animation: scanlines-move 8s linear infinite; }
+.scanlines::after { content: ""; position: absolute; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, rgba(74, 122, 58, 0.06), transparent); animation: scanline-sweep 6s linear infinite; }
+@keyframes scanlines-move { 0% { background-position: 0 0; } 100% { background-position: 0 6px; } }
+@keyframes scanline-sweep { 0% { top: -120px; } 100% { top: 100%; } }
+@keyframes crt-flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.97; } 52% { opacity: 1; } 70% { opacity: 0.98; } }
+
+/* ===== Экраны ===== */
+.screen { position: relative; z-index: 5; width: 100%; max-width: 560px; max-height: 95vh; overflow-y: auto; padding: 2rem; display: none; text-align: center; scrollbar-width: thin; scrollbar-color: var(--rust-soft) transparent; }
+.screen--full { position: fixed; top: 0; left: 0; z-index: 8; max-width: 100%; width: 100%; height: 100vh; max-height: 100vh; padding: 0; overflow: hidden; display: none; flex-direction: column; }
+.screen--full.screen--active { display: flex; }
+.screen::-webkit-scrollbar { width: 6px; }
+.screen::-webkit-scrollbar-thumb { background: var(--rust-soft); }
+.screen--active { display: block; animation: screen-fade 0.6s ease; }
+@keyframes screen-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== Интро ===== */
+#intro { text-align: left; }
+.intro__content { display: flex; flex-direction: column; gap: 0.4rem; }
+.intro__line { color: var(--text); font-size: 1.05rem; letter-spacing: 0.05em; opacity: 0; transform: translateY(4px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.intro__line--visible { opacity: 1; transform: translateY(0); }
+.intro__line--gap { margin-top: 1.2rem; }
+.intro__start { margin-top: 2rem; align-self: flex-start; background: transparent; border: 1px solid var(--rust-soft); color: var(--rust); font-family: inherit; font-size: 1rem; letter-spacing: 0.15em; text-transform: lowercase; padding: 0.7rem 1.2rem; cursor: pointer; transition: all 0.2s ease; }
+.intro__start:hover { background: rgba(196, 122, 58, 0.1); border-color: var(--rust); transform: translateX(4px); box-shadow: inset 2px 0 0 var(--rust); }
+
+/* ===== Общие стили ===== */
+.room__header { margin-bottom: 1rem; }
+.room__title { font-size: 1.8rem; font-weight: normal; color: var(--rust); letter-spacing: 0.35em; text-shadow: 0 0 10px rgba(196, 122, 58, 0.35); }
+.room__title--danger { color: var(--danger); text-shadow: 0 0 10px rgba(168, 58, 42, 0.4); }
+.room__subtitle { color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: lowercase; }
+.room__divider { height: 1px; background: linear-gradient(to right, transparent, var(--rust-soft), transparent); margin: 1rem 0; opacity: 0.6; }
+.room__description { color: var(--text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+
+/* Огонь */
+.room__fire { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.fire { width: 40px; height: 40px; border-radius: 50%; transition: all 0.6s ease; }
+.fire--off { background: radial-gradient(circle, #1a1a1a, #0a0a0a); box-shadow: 0 0 0 rgba(0,0,0,0); }
+.fire--low { background: radial-gradient(circle, #6a3a1a, #2a1a0a); box-shadow: 0 0 20px rgba(196, 122, 58, 0.4); }
+.fire--mid { background: radial-gradient(circle, #c47a3a, #6a3a1a); box-shadow: 0 0 30px rgba(196, 122, 58, 0.6); }
+.fire--high { background: radial-gradient(circle, #e89a4a, #a85a2a); box-shadow: 0 0 45px rgba(232, 154, 74, 0.8); }
+.fire__status { color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: lowercase; }
+
+/* Кнопки */
+.room__actions { display: flex; flex-direction: column; gap: 0.5rem; }
+.btn { background: transparent; border: 1px solid var(--rust-soft); color: var(--text); font-family: inherit; font-size: 1rem; letter-spacing: 0.1em; text-transform: lowercase; padding: 0.7rem 1rem; cursor: pointer; transition: all 0.2s ease; text-align: left; display: flex; justify-content: space-between; align-items: center; }
+.btn:hover:not(:disabled) { background: rgba(196, 122, 58, 0.08); border-color: var(--rust); color: var(--rust); transform: translateX(4px); box-shadow: inset 2px 0 0 var(--rust); }
+.btn:active:not(:disabled) { transform: translateX(2px); }
+.btn:disabled { opacity: 0.35; cursor: not-allowed; border-color: var(--text-dim); }
+.btn__key { color: var(--rust-soft); margin-right: 0.5rem; }
+.btn:hover:not(:disabled) .btn__key { color: var(--rust); }
+.btn--nav { margin-top: 0.4rem; border-color: var(--text-dim); color: var(--text-dim); font-size: 0.9rem; }
+.btn--nav:hover:not(:disabled) { border-color: var(--rust); color: var(--rust); }
+.btn--danger { border-color: var(--danger); color: var(--danger); }
+.btn--danger:hover:not(:disabled) { background: rgba(168, 58, 42, 0.1); }
+
+/* Анимация отката */
+.btn--cooldown { position: relative; overflow: hidden; color: var(--text-dim); border-color: var(--text-dim); cursor: not-allowed; opacity: 1; }
+.btn--cooldown::before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: var(--cd-width, 0%); background: rgba(196, 122, 58, 0.2); z-index: 0; transition: width 0.1s linear; }
+.btn--cooldown span { position: relative; z-index: 1; }
+
+/* ===== СЕТКА РЕСУРСОВ (ИНВЕНТАРЬ) ===== */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  background: rgba(0,0,0,0.3);
+  padding: 0.8rem;
+  border: 1px solid var(--rust-soft);
+}
+.inv-item {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.1em;
+  border-bottom: 1px dashed rgba(138, 90, 42, 0.3); padding-bottom: 0.2rem;
+}
+.inv-item:last-child { border-bottom: none; padding-bottom: 0; }
+.inv-item span { text-transform: lowercase; }
+.inv-item b { color: var(--rust); font-weight: normal; }
+
+/* ВЫНЕСЕННЫЙ ИНВЕНТАРЬ СПРАВА */
+.side-inventory { display: none; }
+@media (min-width: 900px) {
+  .side-inventory {
+    display: block; position: fixed; right: 2rem; top: 50%; transform: translateY(-50%);
+    width: 220px; z-index: 10; background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--rust-soft); padding: 1rem; box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  .screen { transform: translateX(-20px); }
+}
+
+/* ===== Статус героя ===== */
+.hero-status { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; margin: 0.5rem 0; }
+.hero-stat { display: flex; align-items: center; gap: 0.5rem; }
+.hero-stat__label { color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: lowercase; min-width: 70px; }
+.hero-stat__bar { flex: 1; height: 6px; background: rgba(138, 90, 42, 0.2); border: 1px solid rgba(138, 90, 42, 0.3); overflow: hidden; }
+.hero-stat__fill { height: 100%; width: 0%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+.hero-stat__fill--warn { background: var(--rust); }
+.hero-stat__fill--danger { background: var(--danger); }
+
+/* ===== ВЕРСТАК (КРАФТ) ===== */
+.craft-list { display: flex; flex-direction: column; gap: 0.8rem; }
+.craft-item { border: 1px solid var(--rust-soft); padding: 0.8rem; text-align: left; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); }
+.craft-item__info { flex: 1; }
+.craft-item__name { color: var(--rust); font-size: 1rem; margin-bottom: 0.2rem; }
+.craft-item__cost { color: var(--text-dim); font-size: 0.75rem; }
+.craft-item__btn { background: transparent; border: 1px solid var(--rust); color: var(--rust); padding: 0.4rem 0.8rem; cursor: pointer; font-family: inherit; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap; margin-left: 1rem; }
+.craft-item__btn:hover:not(:disabled) { background: rgba(196, 122, 58, 0.2); }
+.craft-item__btn:disabled { border-color: var(--text-dim); color: var(--text-dim); cursor: not-allowed; }
+.craft-item--done { opacity: 0.5; border-color: var(--text-dim); }
+.craft-item--done .craft-item__name { text-decoration: line-through; }
+.craft-item__progress { width: 100%; height: 4px; background: rgba(138,90,42,0.2); margin-top: 0.5rem; display: none; }
+.craft-item--crafting .craft-item__progress { display: block; }
+.craft-item__progress-fill { height: 100%; background: var(--rust); width: 0%; transition: width 0.1s linear; }
+
+/* ===== Карта Зоны и погода ===== */
+.weather-info { color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.world-map { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin: 0.5rem 0; }
+.world-map__node { padding: 0.5rem 0.9rem; border: 1px solid var(--text-dim); color: var(--text-dim); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: lowercase; }
+.world-map__node--current { border-color: var(--rust); color: var(--rust); box-shadow: 0 0 10px rgba(196, 122, 58, 0.3); }
+.world-map__node--done { border-color: var(--ok); color: var(--ok); opacity: 0.6; }
+
+/* ===== Полноэкранная карта ===== */
+.path-header { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(10,10,10,0.9); border-bottom: 1px solid var(--rust-soft); z-index: 10; }
+.path-stats { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+.text-dim { color: var(--text-dim); }
+.path-map-container { position: absolute; top: 50px; bottom: 50px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #050505; }
+.path-grid { display: grid; gap: 1px; margin: auto; }
+.grid-cell { background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(138, 90, 42, 0.2); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--text-dim); transition: all 0.1s; }
+.grid-cell--fog { background: transparent; border-color: transparent; color: transparent; }
+.grid-cell--player { color: var(--ok); text-shadow: 0 0 10px var(--ok); border-color: var(--ok); }
+.grid-cell--enemy { color: var(--danger); text-shadow: 0 0 10px var(--danger); }
+.grid-cell--anomaly { color: #4aa8ff; text-shadow: 0 0 10px #4aa8ff; }
+.grid-cell--loot { color: #e8d44a; text-shadow: 0 0 10px #e8d44a; }
+.grid-cell--exit { color: var(--rust); border: 1px dashed var(--rust); }
+.grid-cell--wall { background: #111; border-color: #222; color: #333; }
+.path-footer { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(10,10,10,0.9); border-top: 1px solid var(--rust-soft); z-index: 10; }
+
+/* ===== Модалки и бой ===== */
+.modal { position: fixed; inset: 0; background: rgba(10, 10, 10, 0.95); z-index: 20; display: flex; align-items: center; justify-content: center; }
+.modal-content { background: var(--bg-soft); padding: 2rem; border: 1px solid var(--danger); text-align: center; max-width: 350px; width: 90%; box-shadow: 0 0 30px rgba(168, 58, 42, 0.3); }
+#anomaly-canvas { display: block; margin: 1rem auto; background: #050505; border: 1px solid var(--text-dim); border-radius: 50%; }
+.combat-content { max-width: 400px; border-color: var(--rust-soft); box-shadow: 0 0 30px rgba(196, 122, 58, 0.2); }
+.combat-arena { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 1rem; background: rgba(0, 0, 0, 0.5); border: 1px dashed var(--rust-soft); position: relative; }
+.combat-side { display: flex; flex-direction: column; align-items: center; position: relative; width: 120px; }
+.combat-sprite { font-size: 3rem; font-weight: bold; line-height: 1; margin-bottom: 0.5rem; text-shadow: 0 0 15px currentColor; }
+.combat-hp-bar { width: 100%; height: 10px; background: rgba(138, 90, 42, 0.2); border: 1px solid rgba(138, 90, 42, 0.4); margin-bottom: 0.3rem; }
+.combat-hp-fill { height: 100%; background: var(--ok); width: 100%; transition: width 0.3s ease; }
+.combat-hp-fill.bg-danger { background: var(--danger); }
+.combat-side span { font-size: 0.75rem; color: var(--text-dim); }
+.combat-dmg { position: absolute; top: 0; font-size: 1.5rem; font-weight: bold; opacity: 0; pointer-events: none; }
+.combat-dmg.animate { animation: float-up 0.8s ease-out forwards; }
+.text-danger { color: var(--danger); } .text-ok { color: var(--ok); }
+@keyframes float-up { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-30px) scale(1.5); } }
+
+/* ===== Сохранения, уведомления, статус ===== */
+.save-code { width: 100%; min-height: 100px; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--rust-soft); color: var(--text); font-family: inherit; font-size: 0.8rem; padding: 0.6rem; resize: vertical; margin-bottom: 1rem; }
+.save-code:focus { outline: none; border-color: var(--rust); }
+.notifications { position: fixed; bottom: 40px; right: 20px; z-index: 10; display: flex; flex-direction: column; gap: 0.4rem; width: 100%; max-width: 320px; pointer-events: none; }
+.notification { background: rgba(10, 10, 10, 0.92); border-right: 2px solid var(--rust-soft); color: var(--text-dim); font-size: 0.85rem; font-style: italic; padding: 0.5rem 0.8rem; opacity: 0; transform: translateX(20px); transition: opacity 0.4s ease, transform 0.4s ease; text-align: right; }
+.notification--visible { opacity: 1; transform: translateX(0); }
+.notification--warning { border-right-color: var(--danger); color: #c8a08a; }
+.blink { animation: blink 1.2s step-end infinite; color: var(--rust); }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.statusbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; display: flex; justify-content: space-between; padding: 0.5rem 1rem; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: lowercase; border-top: 1px solid rgba(138, 90, 42, 0.3); background: rgba(10, 10, 10, 0.8); }
+
+/* ===== АНИМАЦИЯ ПЕРЕХОДА ===== */
+.transition-overlay {
+  position: fixed; inset: 0; background: #000; z-index: 999;
+  pointer-events: none; opacity: 0; transition: opacity 0.4s ease;
+}
+.transition-overlay--active { opacity: 1; }
+
+@media (max-width: 480px) {
+  .screen { padding: 1.5rem; }
+  .room__title { font-size: 1.4rem; letter-spacing: 0.25em; }
+  .btn { font-size: 0.9rem; padding: 0.6rem 0.8rem; }
+  .hero-status { grid-template-columns: 1fr; }
+  .notifications { max-width: 200px; bottom: 30px; right: 10px; }
+  .notification { font-size: 0.75rem; padding: 0.4rem 0.6rem; }
+  .combat-side { width: 90px; }
+  .combat-sprite { font-size: 2.5rem; }
+  .path-header { flex-direction: column; gap: 0.5rem; align-items: flex-start; padding: 1rem; }
+  .path-map-container { top: 80px; }
+}
