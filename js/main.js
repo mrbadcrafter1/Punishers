@@ -12,13 +12,12 @@
       return;
     }
 
-    // Инициализация модулей
     Room.init();
     Outside.init();
     Weather.init();
     Path.init();
     Craft.init(); 
-    World.init(); // <-- Инициализация финала
+    if (typeof World !== "undefined") World.init();
     if (window.AudioEngine) AudioEngine.init();
 
     var startBtn = document.getElementById("intro-start");
@@ -48,51 +47,26 @@
     bindRestart();
     bindPathNav();
     
-    // Чит-команда для тестирования
+    // Чит-команда
     window.cheat = function() {
       var d = GameState.data;
-      d.wood = 999;
-      d.food = 999;
-      d.hide = 999;
-      d.artifacts = 99;
-      d.chips = 99;
-      d.parts = 99;
-      d.hp = 100;
-      d.maxHp = 100;
-      d.rad = 0;
-      d.fatigue = 0;
-      d.hasDetector = true;
-      d.survivors = 5;
-      d.worldLocation = 4; // Сразу на Припять (индекс 4)
-      delete d.mapData[4]; // Удаляем старую карту
+      d.wood = 999; d.food = 999; d.hide = 999;
+      d.artifacts = 99; d.chips = 99; d.parts = 99;
+      d.hp = 100; d.maxHp = 100; d.rad = 0; d.fatigue = 0;
+      d.hasDetector = true; d.survivors = 5;
+      d.worldLocation = 4; 
+      delete d.mapData[4]; 
       
-      if (Path) {
-        Path.mapGrid = [];
-        Path.explored = {};
-      }
-      
+      if (Path) { Path.mapGrid = []; Path.explored = {}; }
       GameState.save();
       
-      UI.notify("ЧИТ АКТИВИРОВАН: ресурсы, Припять, детектор.");
-      Room.render();
-      Outside.render();
-      if (window.Craft) Craft.render();
+      UI.notify("ЧИТ АКТИВИРОВАН: Припять, ресурсы, детектор.");
+      Room.render(); Outside.render(); if (window.Craft) Craft.render();
       
       if (UI.currentScreen === "path") {
-        Path.loadOrGenerate();
-        Path.render();
+        Path.loadOrGenerate(); Path.render();
       }
-      
-      console.log("Чит-код активирован. Локация: Припять (4).");
     };
-    
-    // Для теста финала
-    window.ending = function() {
-      if (window.World) World.showEnding();
-      else console.error("World не загружен!");
-    };
-    
-    console.log("Игра загружена. Введите 'cheat()' или 'ending()' в консоли.");
   }
 
   function bindPathNav() {
@@ -122,11 +96,27 @@
     var btnImport = document.getElementById("btn-import");
     var btnBack = document.getElementById("btn-back-room-saves");
     var textarea = document.getElementById("save-code");
+    var btnHardReset = document.getElementById("btn-hard-reset"); // НОВАЯ КНОПКА
 
     if (btnBack) {
       btnBack.addEventListener("click", function () {
         UI.showScreen("room");
         Room.render();
+      });
+    }
+
+    // ЛОГИКА ПОЛНОГО СБРОСА
+    if (btnHardReset) {
+      btnHardReset.addEventListener("click", function () {
+        var confirmReset = confirm("Вы уверены? Весь прогресс будет удален безвозвратно!");
+        if (confirmReset) {
+          // Удаляем ключ сохранения из localStorage
+          localStorage.removeItem("dark_zone_save_v7");
+          // На всякий случай очищаем всё хранилище
+          localStorage.clear();
+          // Перезагружаем страницу, чтобы начать с чистого листа
+          location.reload();
+        }
       });
     }
 
