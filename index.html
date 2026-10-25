@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тёмная Зона</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="vignette"></div>
+  <div class="scanlines"></div>
+
+  <!-- ИНТРО -->
+  <section id="intro" class="screen screen--active">
+    <div class="intro__content">
+      <p class="intro__line" data-delay="0">выброс.</p>
+      <p class="intro__line" data-delay="1200">одна минута.</p>
+      <p class="intro__line" data-delay="2400">город молчит.</p>
+      <p class="intro__line intro__line--gap" data-delay="4000">ты открываешь глаза.</p>
+      <p class="intro__line" data-delay="5200">где-то впереди — огонёк.</p>
+      <button id="intro-start" class="intro__start" type="button" hidden>
+        <span class="blink">_</span> идти к огню
+      </button>
+    </div>
+  </section>
+
+  <!-- КОСТЁР -->
+  <section id="room" class="screen">
+    <header class="room__header">
+      <h1 class="room__title">костёр</h1>
+      <p class="room__subtitle">блокпост · первый огонь после Выброса</p>
+    </header>
+    <div class="room__divider"></div>
+    
+    <div class="hero-status" id="hero-status-room">
+      <div class="hero-stat"><span class="hero-stat__label">голод</span><div class="hero-stat__bar"><div id="bar-hunger-room" class="hero-stat__fill"></div></div></div>
+      <div class="hero-stat"><span class="hero-stat__label">холод</span><div class="hero-stat__bar"><div id="bar-cold-room" class="hero-stat__fill"></div></div></div>
+      <div class="hero-stat"><span class="hero-stat__label">усталость</span><div class="hero-stat__bar"><div id="bar-fatigue-room" class="hero-stat__fill"></div></div></div>
+      <div class="hero-stat"><span class="hero-stat__label">радиация</span><div class="hero-stat__bar"><div id="bar-rad-room" class="hero-stat__fill"></div></div></div>
+    </div>
+
+    <div class="room__divider"></div>
+    <div class="room__body">
+      <p id="room-description" class="room__description">темно. холодно. где-то капает вода.<br>костёр почти погас.</p>
+      <div class="room__fire">
+        <div id="fire-visual" class="fire fire--off"></div>
+        <p id="fire-status" class="fire__status">огня нет</p>
+      </div>
+    </div>
+    <div class="room__divider"></div>
+    <div class="room__actions">
+      <button id="btn-add-wood" class="btn" type="button"><span class="btn__key">[1]</span> подкинуть хворост</button>
+      <button id="btn-rest" class="btn" type="button" disabled><span class="btn__key">[2]</span> отдохнуть у костра</button>
+      <button id="btn-go-outside" class="btn btn--nav" type="button"><span class="btn__key">[3]</span> выйти наружу →</button>
+      <button id="btn-go-path" class="btn btn--nav" type="button"><span class="btn__key">[4]</span> вылазка в Зону →</button>
+      <button id="btn-go-craft" class="btn btn--nav" type="button"><span class="btn__key">[5]</span> верстак (крафт) →</button>
+      <button id="btn-go-saves" class="btn btn--nav" type="button"><span class="btn__key">[6]</span> сохранения</button>
+    </div>
+  </section>
+
+  <!-- ВЫНЕСЕННЫЙ ИНВЕНТАРЬ -->
+  <aside id="side-inventory" class="side-inventory">
+    <h3 class="room__subtitle" style="margin-bottom:0.5rem;">рюкзак</h3>
+    <div class="inventory-grid">
+      <div class="inv-item"><span>дерево</span> <b id="stat-wood">0</b></div>
+      <div class="inv-item"><span>еда</span> <b id="stat-food">0</b></div>
+      <div class="inv-item"><span>шкуры</span> <b id="stat-hide">0</b></div>
+      <div class="inv-item"><span>микросхемы</span> <b id="stat-chips">0</b></div>
+      <div class="inv-item"><span>детали</span> <b id="stat-parts">0</b></div>
+      <div class="inv-item"><span>артефакты</span> <b id="stat-artifacts">0</b></div>
+      <div class="inv-item"><span>детектор</span> <b id="stat-detector">нет</b></div>
+      <div class="inv-item"><span>выжившие</span> <b id="stat-survivors">0</b></div>
+    </div>
+  </aside>
+
+  <!-- СНАРУЖИ -->
+  <section id="outside" class="screen">
+    <header class="room__header">
+      <h1 class="room__title">снаружи</h1>
+      <p class="room__subtitle">блокпост · окрестности</p>
+    </header>
+    <div class="room__divider"></div>
+    <div class="hero-status" id="hero-status">
+      <div class="hero-stat"><span class="hero-stat__label">голод</span><div class="hero-stat__bar"><div id="bar-hunger" class="hero-stat__fill"></div></div></div>
+      <div class="hero-stat"><span class="hero-stat__label">холод</span><div class="hero-stat__bar"><div id="bar-cold" class="hero-stat__fill"></div></div></div>
+      <div class="hero-stat"><span class="hero-stat__label">усталость</span><div class="hero-stat__bar"><div id="bar-fatigue" class="hero-stat__fill"></div></div></div>
+      <div class="hero-stat"><span class="hero-stat__label">радиация</span><div class="hero-stat__bar"><div id="bar-rad" class="hero-stat__fill"></div></div></div>
+    </div>
+    <div class="room__divider"></div>
+    <p id="outside-description" class="room__description">серое небо. ржавая земля. ветер несёт пыль.</p>
+    <div class="room__actions">
+      <button id="btn-gather-wood" class="btn" type="button"><span class="btn__key">[1]</span> собрать хворост</button>
+      <button id="btn-gather-food" class="btn" type="button"><span class="btn__key">[2]</span> искать грибы</button>
+      <button id="btn-hunt" class="btn" type="button"><span class="btn__key">[3]</span> охотиться</button>
+      <button id="btn-back-room" class="btn btn--nav" type="button"><span class="btn__key">[4]</span> ← вернуться к костру</button>
+    </div>
+    <div class="room__stats">
+      <span>хворост: <b id="stat-wood-out">0</b></span>
+      <span>еда: <b id="stat-food-out">0</b></span>
+      <span>шкуры: <b id="stat-hide-out">0</b></span>
+    </div>
+  </section>
+
+  <!-- ВЕРСТАК (КРАФТ) -->
+  <section id="craft" class="screen">
+    <header class="room__header">
+      <h1 class="room__title">верстак</h1>
+      <p class="room__subtitle">создание предметов</p>
+    </header>
+    <div class="room__divider"></div>
+    
+    <div id="craft-list" class="craft-list"></div>
+
+    <div class="room__divider"></div>
+    <div class="inventory-grid" style="font-size: 0.75rem;">
+      <div class="inv-item"><span>дерево</span> <b id="craft-wood">0</b></div>
+      <div class="inv-item"><span>шкуры</span> <b id="craft-hide">0</b></div>
+      <div class="inv-item"><span>микросхемы</span> <b id="craft-chips">0</b></div>
+      <div class="inv-item"><span>детали</span> <b id="craft-parts">0</b></div>
+      <div class="inv-item"><span>артефакты</span> <b id="craft-artifacts">0</b></div>
+    </div>
+    <div class="room__divider"></div>
+    <button id="btn-back-room-craft" class="btn btn--nav" type="button"><span class="btn__key">[0]</span> ← вернуться к костру</button>
+  </section>
+
+  <!-- ВЫЛАЗКА -->
+  <section id="path" class="screen screen--full">
+    <div class="path-header">
+      <h2 class="room__subtitle" id="path-location">кордон</h2>
+      <div class="path-stats">
+        <span>HP: <b id="path-hp" class="text-ok">100</b></span>
+        <span>Еда: <b id="path-food" class="text-ok">0</b></span>
+        <span>Усталость: <b id="path-fatigue" class="text-dim">0</b></span>
+        <span>Артефакты: <b id="path-artifacts" class="text-ok">0</b></span>
+      </div>
+    </div>
+
+    <div class="path-map-container">
+      <div id="path-grid" class="path-grid"></div>
+    </div>
+    
+    <div class="path-footer">
+      <p id="path-description" class="room__description" style="margin:0;">WASD — движение. L — вперёд, B — назад.</p>
+      <div style="display:flex; gap:0.5rem;">
+        <button id="btn-use-artifact" class="btn btn--nav" type="button" style="margin:0; padding:0.4rem 0.8rem;">
+          [И] артефакт (+вынос., +hp)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- МОДАЛКА БОЯ -->
+  <div id="combat-modal" class="modal" style="display:none;">
+    <div class="modal-content combat-content">
+      <div class="combat-arena">
+        <div class="combat-side" id="player-side">
+          <div class="combat-sprite">@</div>
+          <div class="combat-hp-bar"><div class="combat-hp-fill" id="combat-player-hp"></div></div>
+          <span id="combat-player-hp-text">100 / 100</span>
+          <div id="dmg-taken" class="combat-dmg text-danger"></div>
+        </div>
+        <div class="combat-side" id="enemy-side">
+          <div class="combat-sprite text-danger" id="combat-enemy-sprite">E</div>
+          <div class="combat-hp-bar"><div class="combat-hp-fill bg-danger" id="combat-enemy-hp"></div></div>
+          <span id="combat-enemy-hp-text">30 / 30</span>
+          <div id="dmg-dealt" class="combat-dmg text-ok"></div>
+        </div>
+      </div>
+      <div class="room__actions" style="margin-top: 1.5rem;">
+        <button id="btn-attack" class="btn" type="button">[1] атаковать</button>
+        <button id="btn-heal" class="btn btn--nav" type="button">[2] съесть паек (+20 HP)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- МОДАЛКА АНОМАЛИИ -->
+  <div id="anomaly-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2 style="color:var(--danger); font-weight:normal; letter-spacing:0.2em;">АНОМАЛИЯ</h2>
+      <p style="margin: 1rem 0;">нажми <b>ПРОБЕЛ</b> или <b>WASD</b> в нужный момент!</p>
+      <canvas id="anomaly-canvas" width="160" height="160"></canvas>
+    </div>
+  </div>
+
+  <!-- СОХРАНЕНИЯ, GAME OVER, ФИНАЛ -->
+  <section id="saves" class="screen">
+    <header class="room__header">
+      <h1 class="room__title">сохранения</h1>
+      <p class="room__subtitle">экспорт и импорт</p>
+    </header>
+    <div class="room__divider"></div>
+    <p class="room__description">скопируй код и сохрани его.</p>
+    <textarea id="save-code" class="save-code" placeholder="код сохранения..."></textarea>
+    <div class="room__actions">
+      <button id="btn-export" class="btn" type="button"><span class="btn__key">[1]</span> экспортировать</button>
+      <button id="btn-import" class="btn" type="button"><span class="btn__key">[2]</span> импортировать</button>
+      <button id="btn-back-room-saves" class="btn btn--nav" type="button"><span class="btn__key">[0]</span> ← вернуться к костру</button>
+    </div>
+  </section>
+
+  <section id="gameover" class="screen">
+    <header class="room__header">
+      <h1 class="room__title room__title--danger">конец</h1>
+      <p class="room__subtitle">зона забрала ещё одного</p>
+    </header>
+    <div class="room__divider"></div>
+    <p id="gameover-text" class="room__description">ты не помнишь, как это случилось.<br>просто стало темно. и тихо.</p>
+    <div class="room__divider"></div>
+    <button id="btn-restart" class="btn" type="button"><span class="btn__key">[1]</span> начать заново</button>
+  </section>
+
+  <section id="ending" class="screen">
+    <header class="room__header">
+      <h1 class="room__title">финал</h1>
+      <p class="room__subtitle" id="ending-subtitle">центр Зоны</p>
+    </header>
+    <div class="room__divider"></div>
+    <p id="ending-text" class="room__description"></p>
+    <div class="room__divider"></div>
+    <div class="room__actions" id="ending-actions"></div>
+  </section>
+
+  <!-- ОВЕРЛЕЙ ДЛЯ ПЕРЕХОДА -->
+  <div id="transition-overlay" class="transition-overlay"></div>
+
+  <div id="notifications" class="notifications" aria-live="polite"></div>
+
+  <div class="statusbar">
+    <span id="status-left">версия 5.1 · locations</span>
+    <span id="status-right">зона молчит</span>
+  </div>
+
+  <script src="js/state.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/room.js"></script>
+  <script src="js/outside.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/path.js"></script>
+  <script src="js/craft.js"></script>
+<script src="js/world.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
